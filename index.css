@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+   
+    
+}
+body{
+    background: #fff;
+}
+.nav_bar{
+    background-color: #A3FBA3;
+    border-style:double;
+}
+.nav_list{
+   
+   padding: 20px 10px; 
+
+}
+.nav_list li
+{
+    text-decoration: none;
+    margin: 20px 20px;
+    display: inline;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+.nav_bar a{
+    text-decoration: none;
+    font-size: larger;
+    float: right;
+    margin: 20px;
+}
+.nav_list h2{
+    display: inline-block;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    justify-content:left;
+    margin-right: 100px;
+}
+.container {
+    display: flex;
+    max-width: 1500px;
+    margin: 50px auto;
+    background-color: #fff;
+    
+}
+
+.left-content {
+    flex: 1;
+    padding: 40px;
+}
+
+.left-content h2 {
+    color: #333;
+    font-size: 50px;
+    font-style:initial;
+    margin-bottom: 15px;
+}
+
+.left-content p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.left-content a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #A3FBA3;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.left-content a:hover {
+    background-color: #117d1e;
+}
+
+.right {
+    flex: 1;
+    overflow: hidden;
+}
+
+.right img {
+    width: 100%;
+    height: auto;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+footer {
+    background-color: #333333;
+    color: #fff;
+    padding: 40px 0;
+    display:grid;
+    text-align: center;
+    
+}
+
+.footer-section {
+    margin-bottom: 20px;
+    display:inline-block;
+    padding: auto;
+    margin: 50px 50px;
+    
+
+}
+
+.footer-section h2,
+.footer-section h4 {
+    color: white;
+}
+
+.footer-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 5px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #fff;
+    display: block; /* Added to ensure each link occupies the full width */
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}

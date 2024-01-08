@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <style>
+ body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Updated font styles */
+  background-color: #4CAF50; /* Green theme color */
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+  padding: 30px; /* Increased padding for a larger box */
+  border-radius: 12px; /* Increased border radius for a softer look */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Slightly increased box shadow */
+  text-align: center;
+}
+
+h2 {
+  color: black; /* Green theme color */
+  font-size: 24px; /* Increased font size */
+  margin-bottom: 20px; /* Increased margin */
+}
+
+label {
+  display: block;
+  margin-bottom: 10px; /* Increased margin */
+  color: #333; /* Dark text color */
+  font-size: 16px; /* Increased font size */
+}
+
+input {
+  width: 100%;
+  padding: 12px; /* Increased padding */
+  margin-bottom: 20px; /* Increased margin */
+  box-sizing: border-box;
+  border: 1px solid #ccc; /* Border color */
+  border-radius: 6px; /* Slightly increased border radius */
+  font-size: 16px; /* Increased font size */
+}
+
+button {
+  background: linear-gradient(to right, #4CAF50, #45a049); /* Green theme gradient */
+  color: #fff;
+  padding: 14px; /* Increased padding */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 18px; /* Increased font size */
+}
+
+button:hover {
+  background: linear-gradient(to right, #45a049, #408b45); /* Darker green on hover */
+}
+
+/* Optional: Add some spacing between form elements */
+form {
+  margin-top: 20px;
+}
+
+/* Optional: Center the form on smaller screens */
+@media screen and (max-width: 600px) {
+  .login-container {
+    width: 80%;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Login Form</h2>
+    <form id="loginForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+  
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+  
+      <button type="button" onclick="submitForm()">Login</button>
+    </form>
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+    function submitForm() {
+      var username = $("#username").val();
+      var password = $("#password").val();
+  
+      if (username === "" || password === "") {
+        alert("Please enter both username and password");
+        return;
+      }
+  
+      if (username === "siva" && password === "siva") {
+        alert("Username "+username);
+        isLoggedIn = true; // Update login status
+        window.location.href = "index.html";
+      } else {
+        alert("Invalid username or password");
+      }
+    }
+  </script>
+
+</body>
+</html>

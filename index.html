@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+
+<body>
+   
+<div class="nav_bar">
+    <ul class="nav_list">
+      <h2>Happy Explore</h2>
+      <li><a href="#" id="loginLink">Login</a></li>
+      <li><a href="#">Sign up</a></li>
+      <li><a href="booknow.html" id="bookNowBtn">Book now</a></li>
+      <li><a href="locations.html">Locations</a></li>
+    </ul>
+</div>
+  
+<div class="container">
+    <div class="left-content">
+      <h2>Explore more to feel better</h2>
+      <p>Embrace curiosity, take your time, step outside your comfort zone, connect with nature, practice mindfulness, embrace spontaneity, and share your experiences. There are more than thousands of places to be explored by our website, to book more of it click the button</p>
+      <a href="#" id="bookNowLink">Book now</a>
+    </div>
+    <div class="right">
+      <img src="travel-concept-with-worldwide-landmarks.jpg" style="width: 100%;">
+    </div>
+</div>
+  
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    let isLoggedIn = false;
+
+    function toggleLoginStatus() {
+      if (isLoggedIn) {
+        $('#loginLink').text('Logout');
+      } else {
+        $('#loginLink').text('Login');
+      }
+    }
+
+    toggleLoginStatus();
+
+    $('#loginLink').on('click', function (e) {
+      e.preventDefault();
+      if (isLoggedIn) {
+        isLoggedIn = false;
+      } else {
+        window.location.href = 'login.html';
+      }
+      toggleLoginStatus();
+    });
+
+    $('#bookNowLink').on('click', function (e) {
+      e.preventDefault();
+      if (isLoggedIn) {
+        window.location.href = 'booknow.html';
+      } else {
+        alert("Please login before booking");
+        window.location.href = 'login.html';
+      }
+    });
+</script>
+    
+<footer>
+    <div class="footer-section">
+        <h2>Contact Us</h2>
+        <p>Email: info@touristexplore.com</p>
+        <p>Phone: 452-248-23</p>
+    </div>
+    <p class="copyright">&copy; 2023 Your Online TouristBooking</p>
+</footer> 
+</body>
+
+</html>

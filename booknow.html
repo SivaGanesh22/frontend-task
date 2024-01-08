@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Form</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    form {
+      background-color: #4CAF50;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      color: white;
+      max-width: 400px;
+      width: 100%;
+      display: grid;
+    
+      margin: 10px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 15px;
+      box-sizing: border-box;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      background: linear-gradient(to right, #45a049, #4CAF50);
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    button:hover {
+      background: linear-gradient(to right, #4CAF50, #45a049);
+    }
+
+    #guestDetails h3 {
+      border-bottom: 2px solid #45a049;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+  </style>
+<body>
+
+  <form id="bookingForm">
+    <label for="location">Location:</label>
+    <select id="location" name="location" required>
+      <option value="city1">City 1</option>
+      <option value="city2">City 2</option>
+      <option value="city3">City 3</option>
+      
+    </select>
+
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" required>
+
+    <label for="numberOfPeople">Number of People:</label>
+    <input type="number" id="numberOfPeople" name="numberOfPeople" min="1" required>
+
+    <div id="guestDetails"></div>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    $(document).ready(function() {
+      $('#numberOfPeople').on('input', function() {
+        var numberOfPeople = $(this).val();
+        generateGuestFields(numberOfPeople);
+      });
+
+      function generateGuestFields(numberOfPeople) {
+        var guestDetailsContainer = $('#guestDetails');
+        guestDetailsContainer.empty();
+
+        for (var i = 1; i <= numberOfPeople; i++) {
+          guestDetailsContainer.append('<h3>Guest ' + i + '</h3>');
+          guestDetailsContainer.append('<label for="name' + i + '">Name:</label>');
+          guestDetailsContainer.append('<input type="text" id="name' + i + '" name="name' + i + '" required>');
+
+          guestDetailsContainer.append('<label for="age' + i + '">Age:</label>');
+          guestDetailsContainer.append('<input type="number" id="age' + i + '" name="age' + i + '" min="1" required>');
+
+          guestDetailsContainer.append('<label for="sex' + i + '">Sex:</label>');
+          guestDetailsContainer.append('<select id="sex' + i + '" name="sex' + i + '" required><option value="male">Male</option><option value="female">Female</option></select>');
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
