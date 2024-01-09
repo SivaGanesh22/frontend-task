@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Envelope</title>
+  <style>
+    /* Change the color palette to match your preferences */
+    :root {
+      --envelope-background: #db4534; /* Envelope background color */
+      --envelope-border: #db4534; /* Envelope border color */
+      --envelope-content-background: #ecf0f1; /* Content background color */
+      --envelope-content-border: #bdc3c7; /* Content border color */
+    }
+
+    .envelope {
+      width: 110px;
+      height: 60px;
+      background-color: var(--envelope-background);
+      border: 1px solid var(--envelope-border);
+      position: relative;
+      cursor: pointer;
+    }
+
+    .envelope:before {
+      content: "";
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 10px 25px 0;
+      border-color: var(--envelope-background) transparent transparent transparent;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .open .envelope:before {
+      border-width: 0 25px 10px;
+      border-color: transparent transparent var(--envelope-background) transparent;
+    }
+
+    .content {
+      display: none;
+      padding: 10px;
+      background-color: var(--envelope-content-background);
+      border: 1px solid var(--envelope-content-border);
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<form id="emailForm">
+  <label for="email">Enter your email:</label>
+  <input type="email" id="email" name="email" required>
+  <button type="submit">Open Envelope</button>
+</form>
+
+<div class="envelope" id="emailEnvelope">
+  <div class="content">
+    <!-- Display entered email credentials here -->
+    <p id="emailCredentials"></p>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $("#emailForm").submit(function(event) {
+      event.preventDefault();
+      var enteredEmail = $("#email").val();
+      $("#emailCredentials").text("Email: " + enteredEmail);
+      $("#emailEnvelope").addClass("open");
+      $(".content").slideDown();
+    });
+  });
+</script>
+
+</body>
+</html>
